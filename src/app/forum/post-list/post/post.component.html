@@ -1,137 +1,27 @@
-<div class="ui attached segment">
-  <div class="ui segments">
-    <div class="ui green segment">
-      <div class="ui grid">
-        <div class="ui two wide column">
-          <div class="ui list">
-            <div class="item"><i class="big center aligned angle up icon"></i></div>
-            <div class="item"><div class="ui center aligned circular label">15</div></div>
-            <div class="item"><i class="big center aligned angle down icon"></i></div>
-          </div>
-        </div>
-        <div class="ui fourteen wide column">
-          <div class="ui grid">
-            <div class="ui fifteen wide column">
-              <span class="ui horizontal center aligned header">Help me solve this integral </span>
-            </div>
-            <div class="ui one wide column">
-              <a class="ui green horizontal right ribbon label">Solved!</a>
-            </div>
-          </div>
-          <p>
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-            Accusantium ad adipisci animi, aperiam consequuntur culpa deserunt doloremque ducimus,
-            fuga id impedit iure magni nobis optio quisquam quo sapiente sed vitae.
-          </p>
-          <div class="ui tag labels">
-            <a class="ui tag label"><i class="hashtag icon"></i>Math</a>
-            <a class="ui tag label"><i class="hashtag icon"></i>Integral</a>
-            <a class="ui tag label"><i class="hashtag icon"></i>Calculus</a>
-          </div>
-        </div>
+<div [ngClass]="(post.solved)?'ui green segment':'ui orange segment'">
+  <div class="ui grid">
+    <div class="ui two wide column">
+      <div class="ui list">
+        <div class="item" (click)="upvote()"><i class="big center aligned angle up icon"></i></div>
+        <div class="item"><div class="ui center aligned circular label">{{post.votes}}</div></div>
+        <div class="item"(click)="downvote()"><i class="big center aligned angle down icon"></i></div>
+          <strong>{{post.author.username}}</strong>
       </div>
     </div>
-    <div class="ui orange segment">
+    <div class="ui fourteen wide column">
       <div class="ui grid">
-        <div class="ui two wide column">
-          <div class="ui list">
-            <div class="item"><i class="big center aligned angle up icon"></i></div>
-            <div class="item"><div class="ui center aligned circular label">3</div></div>
-            <div class="item"><i class="big center aligned angle down icon"></i></div>
-          </div>
+        <div class="ui fifteen wide column">
+          <span class="ui horizontal center aligned header">{{post.title}}</span>
         </div>
-        <div class="ui fourteen wide column">
-          <span class="ui horizontal center aligned header">Where and when does Dr.X have consultation hours? </span>
-          <p>
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-            Accusantium ad adipisci animi, aperiam consequuntur culpa deserunt doloremque ducimus,
-            fuga id impedit iure magni nobis optio quisquam quo sapiente sed vitae.
-          </p>
-          <div class="ui tag labels">
-            <a class="ui tag label"><i class="hashtag icon"></i>Schedules</a>
-            <a class="ui tag label"><i class="hashtag icon"></i>IFE</a>
-          </div>
+        <div class="ui one wide column">
+          <a *ngIf="post.solved" class="ui green horizontal right ribbon label">Solved!</a>
         </div>
       </div>
-    </div>
-    <div class="ui orange segment">
-      <div class="ui grid">
-        <div class="ui two wide column">
-          <div class="ui list">
-            <div class="item"><i class="big center aligned angle up icon"></i></div>
-            <div class="item"><div class="ui center aligned circular label">-10</div></div>
-            <div class="item"><i class="big center aligned angle down icon"></i></div>
-          </div>
-        </div>
-        <div class="ui fourteen wide column">
-          <span class="ui horizontal center aligned header">HELP PLOX I NEED THIS </span>
-          <p>
-
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-            Accusantium ad adipisci animi, aperiam consequuntur culpa deserunt doloremque ducimus,
-            fuga id impedit iure magni nobis optio quisquam quo sapiente sed vitae.
-          </p>
-          <div class="ui tag labels">
-            <a class="ui tag label"><i class="hashtag icon"></i>C++</a>
-            <a class="ui tag label"><i class="hashtag icon"></i>FTIMS</a>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="ui green segment">
-      <div class="ui grid">
-        <div class="ui two wide column">
-          <div class="ui list">
-            <div class="item"><i class="big center aligned angle up icon"></i></div>
-            <div class="item"><div class="ui center aligned circular label">15</div></div>
-            <div class="item"><i class="big center aligned angle down icon"></i></div>
-          </div>
-        </div>
-        <div class="ui fourteen wide column">
-          <div class="ui grid">
-            <div class="ui fifteen wide column">
-              <span class="ui horizontal center aligned header">What is NullPointerException </span>
-            </div>
-            <div class="ui one wide column">
-              <a class="ui green horizontal right ribbon label">Solved!</a>
-            </div>
-          </div>
-          <p>
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-            Accusantium ad adipisci animi, aperiam consequuntur culpa deserunt doloremque ducimus,
-            fuga id impedit iure magni nobis optio quisquam quo sapiente sed vitae.
-          </p>
-          <div class="ui tag labels">
-            <a class="ui tag label"><i class="hashtag icon"></i>Java</a>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="ui orange segment">
-      <div class="ui grid">
-        <div class="ui two wide column">
-          <div class="ui list">
-            <div class="item"><i class="big center aligned angle up icon"></i></div>
-            <div class="item"><div class="ui center aligned circular label">300</div></div>
-            <div class="item"><i class="big center aligned angle down icon"></i></div>
-          </div>
-        </div>
-        <div class="ui fourteen wide column">
-          <div class="ui grid">
-            <div class="ui fifteen wide column">
-              <span class="ui horizontal center aligned header">What are the non-trivial zeroes of Riemann zeta function? </span>
-            </div>
-          </div>
-          <p>
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-            Accusantium ad adipisci animi, aperiam consequuntur culpa deserunt doloremque ducimus,
-            fuga id impedit iure magni nobis optio quisquam quo sapiente sed vitae.
-          </p>
-          <div class="ui tag labels">
-            <a class="ui tag label"><i class="hashtag icon"></i>Math</a>
-            <a class="ui tag label"><i class="hashtag icon"></i>Analysis</a>
-          </div>
-        </div>
+      <p>
+        {{post.body}}
+      </p>
+      <div class="ui tag labels">
+        <a *ngFor="let t of post.tags" class="ui tag label"><i class="hashtag icon"></i>{{t}}</a>
       </div>
     </div>
   </div>

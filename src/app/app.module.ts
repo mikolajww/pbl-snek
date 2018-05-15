@@ -11,6 +11,8 @@ import { TagSearchComponent } from './forum/tag-search/tag-search.component';
 import { AboutComponent } from './about/about.component';
 import {RouterModule, Routes} from '@angular/router';
 import { ForumComponent } from './forum/forum.component';
+import {PostService} from './service/post.service';
+import {UserService} from './service/user.service';
 
 const routes:Routes = [
   {path: '', component:ForumComponent},
@@ -32,7 +34,7 @@ const routes:Routes = [
     BrowserModule,
     RouterModule.forRoot(routes)
   ],
-  providers: [],
+  providers: [PostService, UserService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

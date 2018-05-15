@@ -18,5 +18,9 @@
     </a>
 
   </div>
-  <app-post></app-post>
+  <div class="ui attached segment">
+    <div class="ui segments">
+      <app-post *ngFor="let p of postList" [post]="p"></app-post>
+    </div>
+  </div>
 </div>
