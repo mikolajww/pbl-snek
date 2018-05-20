@@ -13,10 +13,20 @@ import {RouterModule, Routes} from '@angular/router';
 import { ForumComponent } from './forum/forum.component';
 import {PostService} from './service/post.service';
 import {UserService} from './service/user.service';
+import { NewQuestionComponent } from './new-question/new-question.component';
+import { ContactComponent } from './contact/contact.component';
+import { LoginComponent } from './login/login.component';
+import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+import {HttpClientModule} from '@angular/common/http';
+import {FormsModule} from '@angular/forms';
 
 const routes:Routes = [
   {path: '', component:ForumComponent},
-  {path: 'about', component:AboutComponent}
+  {path: 'about', component:AboutComponent},
+  {path: 'ask', component:NewQuestionComponent},
+  {path: 'contact', component:ContactComponent},
+  {path: 'login', component:LoginComponent},
+  {path: '**', component:PageNotFoundComponent}
 ];
 
 @NgModule({
@@ -28,10 +38,16 @@ const routes:Routes = [
     PostComponent,
     TagSearchComponent,
     AboutComponent,
-    ForumComponent
+    ForumComponent,
+    NewQuestionComponent,
+    ContactComponent,
+    LoginComponent,
+    PageNotFoundComponent
   ],
   imports: [
     BrowserModule,
+    HttpClientModule,
+    FormsModule,
     RouterModule.forRoot(routes)
   ],
   providers: [PostService, UserService],

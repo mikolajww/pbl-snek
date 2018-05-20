@@ -8,9 +8,9 @@ export class Post {
   votes:number;
   tags:string[];
   comments:string[];
-  author:User;
+  userId:number;
 
-  constructor(title: string, body: string, tags:string[], author:User ,solved?: boolean, votes?:number, id? : number) {
+  constructor(title: string, body: string, tags:string[], userId:number ,solved?: boolean, votes?:number, id? : number) {
     this.title = title;
     this.body = body;
     this.solved = solved || false;
@@ -18,6 +18,6 @@ export class Post {
     this.id = id;
     this.tags = tags;
     this.comments = [];
-    this.author = author;
+    this.userId = userId;
   }
 }

@@ -1,0 +1,62 @@
+<div class="ui segment">
+  <h1 class="ui center aligned header">
+    Ask the community
+  </h1>
+  <form class="ui form">
+    <div class="ui huge fluid labeled input">
+      <div class="ui label">Title</div>
+      <input class="ui input" type="text" placeholder="Enter a title..."  [(ngModel)]="newPost.title" name="title">
+    </div>
+    <br>
+    <div class="ui huge fluid input">
+      <textarea class="ui input" placeholder="Write a description..." [(ngModel)]="newPost.body" name="body"></textarea>
+    </div>
+    <br>
+    <div class="ui huge category search">
+      <div class="ui fluid icon input">
+        <input class="prompt" type="text" placeholder="Add tags..." (keydown.enter)="addTag(tag)" #tag>
+        <i class="plus icon"></i>
+      </div>
+    </div>
+    <br>
+    <div class="ui big tag labels">
+      <span *ngFor="let t of newPost.tags">
+        <a class="ui tag label"><i class="hashtag icon"></i>{{t}}</a><i class="times icon" (click)="removeTag(t)"></i>
+      </span>
+    </div>
+    <div class="ui negative message toomany">
+      <div class="content">
+        <div class="header">
+          Too many tags
+        </div>
+        <p>You may input maximum 5 tags to your post.</p>
+      </div>
+    </div>
+    <div class="ui negative message sametag">
+      <div class="content">
+        <div class="header">
+          Identical tags
+        </div>
+        <p>The tags have to be different</p>
+      </div>
+    </div>
+    <br>
+    <div class="ui grid">
+      <div class="ui eight wide column">
+        <div>
+          <label for="hidden-new-file" class="ui fluid icon button">
+            <i class="upload icon"></i>
+            Attach a file
+          </label>
+          <input type="file" id="hidden-new-file" style="display: none">
+        </div>
+      </div>
+      <div class="ui eight wide column">
+        <button class="ui fluid right floated yellow button" (click)="addPost()">Submit</button>
+      </div>
+    </div>
+  </form>
+</div>
+
+
+

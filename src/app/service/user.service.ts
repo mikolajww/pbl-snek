@@ -6,11 +6,11 @@ import {Post} from '../model/post';
 export class UserService {
 
   users:User[] = [
-    new User("Sneiker","sneiker@sneiker.sn"),
-    new User("Bneiker","Bneiker@sneiker.sn"),
-    new User("SBeiker","sBeiker@sneiker.sn"),
-    new User("SneiBer","sneiBer@sneiker.sn"),
-    new User("Bokonon","Bokonon@sneiker.sn")
+    new User("Sneiker","sneiker@sneiker.sn",0),
+    new User("Bneiker","Bneiker@sneiker.sn",1),
+    new User("SBeiker","sBeiker@sneiker.sn",2),
+    new User("SneiBer","sneiBer@sneiker.sn",3),
+    new User("Bokonon","Bokonon@sneiker.sn",4)
   ];
   constructor() { }
 

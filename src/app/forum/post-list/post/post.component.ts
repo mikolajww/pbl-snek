@@ -1,5 +1,7 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {Post} from '../../../model/post';
+import {User} from '../../../model/user';
+import {UserService} from '../../../service/user.service';
 
 @Component({
   selector: 'app-post',
@@ -8,9 +10,11 @@ import {Post} from '../../../model/post';
 })
 export class PostComponent implements OnInit {
   @Input() post:Post;
-  constructor() { }
+  author:User;
+  constructor(private userService:UserService) { }
 
   ngOnInit() {
+    this.author = this.userService.getUser(this.post.userId);
   }
 
   upvote() {
