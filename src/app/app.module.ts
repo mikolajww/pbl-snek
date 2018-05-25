@@ -15,10 +15,11 @@ import {PostService} from './service/post.service';
 import {UserService} from './service/user.service';
 import { NewQuestionComponent } from './new-question/new-question.component';
 import { ContactComponent } from './contact/contact.component';
-import { LoginComponent } from './login/login.component';
+import { LoginComponent } from './navbar/login/login.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import {HttpClientModule} from '@angular/common/http';
 import {FormsModule} from '@angular/forms';
+import {PostHttpService} from './service/post-http-service.service';
 
 const routes:Routes = [
   {path: '', component:ForumComponent},
@@ -50,7 +51,7 @@ const routes:Routes = [
     FormsModule,
     RouterModule.forRoot(routes)
   ],
-  providers: [PostService, UserService],
+  providers: [PostHttpService, UserService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -15,10 +15,18 @@
     <a class="item" [routerLink]="['/contact']">
       Contact
     </a>
-    <a class="item" style="background:#FFD700">
-      Login
+
+    <a class="login item" (click)="showLogin()" style="background:#FFD700">
+      <span *ngIf="!logged">Login</span>
+      <span *ngIf="logged">Logout</span>
     </a>
+
+    <div class="ui basic popup">
+      <app-login (onLogin)="loggedIn($event)"></app-login>
+    </div>
+
   </div>
 </div>
+
 
 

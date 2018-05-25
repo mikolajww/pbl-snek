@@ -5,7 +5,7 @@ import {NewPost} from '../model/new-post';
 
 @Injectable()
 export class PostService {
-
+  /*
   private postList:Post[];
   constructor(private userService:UserService) {
     this.postList = [
@@ -37,5 +37,5 @@ export class PostService {
   }
   addPost(post:NewPost) {
     this.postList.push(new Post(post.title, post.body, post.tags, post.userId));
-  }
+  }*/
 }

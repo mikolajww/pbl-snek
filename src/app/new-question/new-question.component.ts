@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {NewPost} from '../model/new-post';
 import {PostService} from '../service/post.service';
+import {PostHttpService} from '../service/post-http-service.service';
 declare var jQuery:any;
 
 @Component({
@@ -10,7 +11,7 @@ declare var jQuery:any;
 })
 export class NewQuestionComponent implements OnInit {
   newPost:NewPost;
-  constructor(private postService:PostService) {
+  constructor(private postService:PostHttpService) {
     this.newPost = new NewPost();
   }
 
@@ -45,5 +46,6 @@ export class NewQuestionComponent implements OnInit {
     this.postService.addPost(this.newPost);
     return false;
   }
+
 
 }
