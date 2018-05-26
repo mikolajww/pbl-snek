@@ -3,7 +3,7 @@
     SNEK
   </h2>
   <div class="right menu">
-    <a class="item" [routerLink]="['/ask']">
+    <a *ngIf="localstorage.getItem('loggedin') == 'true'" class="item" [routerLink]="['/ask']">
       Ask a question
     </a>
     <a class="item" [routerLink]="['']">
@@ -17,8 +17,8 @@
     </a>
 
     <a class="login item" (click)="showLogin()" style="background:#FFD700">
-      <span *ngIf="!logged">Login</span>
-      <span *ngIf="logged">Logout</span>
+      <span *ngIf="localstorage.getItem('loggedin') == 'false' || localstorage.getItem('loggedin') == undefined">Login</span>
+      <span *ngIf="localstorage.getItem('loggedin') == 'true'">Logout {{localstorage.getItem("userId")}}</span>
     </a>
 
     <div class="ui basic popup">

@@ -2,16 +2,16 @@ import {PostService} from '../service/post.service';
 
 export class NewPost {
   title:string;
-  body:string;
-  id:number;
+  description:string;
+  id:string;
   tags:string[];
-  userId:number;
+  userId:string;
 
-  constructor(title?: string, body?: string, id?: number, tags?: string[], userId?: number) {
+  constructor(title?: string, body?: string, id?: string, tags?: string[], userId?: string) {
     this.title = title || "";
-    this.body = body || "";
-    this.id = id || 0;
+    this.description = body || "";
+    this.id = id || "";
     this.tags = tags || [];
-    this.userId = userId || 0;
+    this.userId = userId || "";
   }
 }

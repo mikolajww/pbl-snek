@@ -1,10 +1,10 @@
 import { Injectable } from '@angular/core';
-import {HttpClient} from '@angular/common/http';
+import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {Observable} from 'rxjs/Observable';
-import {Post} from '../model/post';
 import {NewPost} from '../model/new-post';
 import 'rxjs/add/operator/map';
 import {tap} from 'rxjs/operators';
+import {Post} from '../model/post';
 
 @Injectable()
 export class PostHttpService {
@@ -14,12 +14,18 @@ export class PostHttpService {
 
   getAllPosts():Observable<any> {
     console.log('get all posts');
-    return this.http.get<any>(this.apiUrl).map(res => res.data.docs).pipe(tap(r=>console.log(r)));
+    return this.http.get<any>(this.apiUrl).pipe(tap(r=>console.log(r)));
   }
 
 
   addPost(newPost:NewPost) {
+    const header = new HttpHeaders().set('Content-Type','application/json');
 
+    const auth = localStorage.getItem("accessKey");
+    return this.http.post<Post>(`${this.apiUrl}?access_token=${auth}`,newPost,{headers: header}).subscribe(
+      r => console.log(r),
+      err =>  console.log(err)
+    );
   }
 
 

@@ -20,6 +20,7 @@ export class UserService {
       console.log(`recieved access key ${r.id}`);
       localStorage.setItem("accessKey",r.id);
       localStorage.setItem("userId", r.userId);
+      localStorage.setItem("loggedin", "true");
       this.loggedIn = true;
       this.getUser(localStorage.getItem("userId"), localStorage.getItem("accessKey")).subscribe(r =>  {
         this.user =r;
@@ -33,6 +34,7 @@ export class UserService {
     this.http.post<any>(`${this.apiUrl}/Users/logout?access_token=${auth}`,{}).subscribe(() => {
       localStorage.removeItem("accessKey");
       localStorage.removeItem("userId");
+      localStorage.removeItem("loggedin");
       console.log("logged out");
       this.loggedIn = false;
     });

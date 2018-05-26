@@ -43,6 +43,11 @@ export class NewQuestionComponent implements OnInit {
   }
 
   addPost():boolean {
+    let post = new NewPost();
+    post.description = this.newPost.description;
+    post.title = this.newPost.title;
+    post.tags = this.newPost.tags;
+    console.log(post);
     this.postService.addPost(this.newPost);
     return false;
   }

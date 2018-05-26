@@ -19,7 +19,6 @@ export class LoginComponent implements OnInit {
   login(email:HTMLInputElement, password:HTMLInputElement) {
       if(email != null && password != null) {
         this.userService.loginUser(email.value, password.value);
-        this.onLogin.emit(true);
       }
   }
 

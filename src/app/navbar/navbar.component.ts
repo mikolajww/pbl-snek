@@ -11,6 +11,7 @@ declare var jQuery:any;
 export class NavbarComponent implements OnInit, AfterViewChecked{
   email:string;
   logged = false;
+  localstorage = localStorage;
   private isChecked: boolean;
   constructor(private userService:UserService) { }
 
@@ -46,7 +47,7 @@ export class NavbarComponent implements OnInit, AfterViewChecked{
   }
 
   showLogin() {
-    if(!this.logged) {
+    if(this.localstorage.getItem('loggedin') == 'false' || this.localstorage.getItem('loggedin') == undefined) {
       jQuery('.login.item').popup('show');
     }
     else this.logout();
