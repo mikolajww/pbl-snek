@@ -47,6 +47,7 @@ export class NewQuestionComponent implements OnInit {
     post.description = this.newPost.description;
     post.title = this.newPost.title;
     post.tags = this.newPost.tags;
+    post.userId = localStorage.getItem("userId");
     console.log(post);
     this.postService.addPost(this.newPost);
     return false;
