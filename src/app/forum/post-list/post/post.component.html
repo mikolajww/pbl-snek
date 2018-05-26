@@ -11,14 +11,18 @@
     <div class="ui fourteen wide column" (click)="showModal()">
       <div class="ui grid">
         <div class="ui fifteen wide column">
-          <span class="ui horizontal center aligned header">{{post.title}}</span>
+          <span class="ui horizontal center aligned header" *ngIf="post.title.length < 100">{{post.title}}</span>
+          <span class="ui horizontal center aligned header" *ngIf="post.title.length > 100">{{post.title.substr(0,100)}}...</span>
         </div>
         <div class="ui one wide column">
           <a *ngIf="post.solved" class="ui green horizontal right ribbon label">Solved!</a>
         </div>
       </div>
-      <p>
+      <p *ngIf="post.description.length < 500">
         {{post.description}}
+      </p>
+      <p *ngIf="post.description.length > 500">
+        {{post.description.substr(0,500)}}...
       </p>
       <div class="ui tag labels">
         <a *ngFor="let t of post.tags" class="ui tag label"><i class="hashtag icon"></i>{{t}}</a>
