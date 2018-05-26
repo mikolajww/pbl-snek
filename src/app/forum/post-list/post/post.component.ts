@@ -2,7 +2,7 @@ import {Component, Input, OnInit} from '@angular/core';
 import {Post} from '../../../model/post';
 import {User} from '../../../model/user';
 import {UserService} from '../../../service/user.service';
-
+declare var jQuery:any;
 @Component({
   selector: 'app-post',
   templateUrl: './post.component.html',
@@ -15,6 +15,10 @@ export class PostComponent implements OnInit {
 
   ngOnInit() {
     //this.author = this.userService.getUser(this.post.userId || 0);
+  }
+
+  showModal() {
+    jQuery('.ui.modal').modal('show');
   }
 
   upvote() {

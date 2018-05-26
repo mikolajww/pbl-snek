@@ -8,7 +8,7 @@
           <strong></strong>
       </div>
     </div>
-    <div class="ui fourteen wide column">
+    <div class="ui fourteen wide column" (click)="showModal()">
       <div class="ui grid">
         <div class="ui fifteen wide column">
           <span class="ui horizontal center aligned header">{{post.title}}</span>
@@ -23,6 +23,31 @@
       <div class="ui tag labels">
         <a *ngFor="let t of post.tags" class="ui tag label"><i class="hashtag icon"></i>{{t}}</a>
       </div>
+    </div>
+  </div>
+</div>
+
+
+<div class="ui modal">
+  <i class="close icon"></i>
+  <h1 class="ui center aligned massive header">
+    {{post.title}}
+  </h1>
+  <div class="content">
+    <div class="ui grid">
+      <div class="ui list">
+        <div class="item" (click)="upvote()"><i class="huge center aligned angle up icon"></i></div>
+        <div class="item"><div class="ui center aligned huge circular label">{{post.votes}}</div></div>
+        <div class="item"(click)="downvote()"><i class="huge center aligned angle down icon"></i></div>
+        <strong></strong>
+      </div>
+      <div class="ui twelve wide column">
+        <p class="ui huge header">{{post.description}}</p>
+      </div>
+    </div>
+    <hr>
+    <div class="ui tag labels">
+      <a *ngFor="let t of post.tags" class="ui tag label"><i class="hashtag icon"></i>{{t}}</a>
     </div>
   </div>
 </div>
