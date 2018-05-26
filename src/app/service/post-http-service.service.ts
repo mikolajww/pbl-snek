@@ -14,7 +14,7 @@ export class PostHttpService {
 
   getAllPosts():Observable<any> {
     console.log('get all posts');
-    return this.http.get<any>(this.apiUrl).pipe(tap(r=>console.log(r)));
+    return this.http.get<Post[]>(this.apiUrl).pipe(tap(r=>console.log(r)));
   }
 
 
@@ -22,6 +22,7 @@ export class PostHttpService {
     const header = new HttpHeaders().set('Content-Type','application/json');
 
     const auth = localStorage.getItem("accessKey");
+    console.log(newPost);
     return this.http.post<Post>(`${this.apiUrl}?access_token=${auth}`,newPost,{headers: header}).subscribe(
       r => console.log(r),
       err =>  console.log(err)

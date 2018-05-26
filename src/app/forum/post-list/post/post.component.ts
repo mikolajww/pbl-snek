@@ -18,7 +18,7 @@ export class PostComponent implements OnInit {
   }
 
   showModal() {
-    jQuery('.ui.modal').modal('show');
+    jQuery(`.ui.modal.${this.post.id}`).modal('show');
   }
 
   upvote() {
