@@ -22,6 +22,7 @@ import {FormsModule} from '@angular/forms';
 import {PostHttpService} from './service/post-http-service.service';
 import { CommentListComponent } from './forum/post-list/comment-list/comment-list.component';
 import {CommentService} from "./service/comment.service";
+import { CommentComponent } from './forum/post-list/comment-list/comment/comment.component';
 
 const routes:Routes = [
   {path: '', component:ForumComponent},
@@ -46,7 +47,8 @@ const routes:Routes = [
     ContactComponent,
     LoginComponent,
     PageNotFoundComponent,
-    CommentListComponent
+    CommentListComponent,
+    CommentComponent
   ],
   imports: [
     BrowserModule,

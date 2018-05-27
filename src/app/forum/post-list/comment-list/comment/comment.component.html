@@ -1,0 +1,22 @@
+<hr>
+<div class="ui twelve wide column">
+  <div class="ui medium">
+    <div class="ui grid">
+      <div class="ui list">
+        <div class="item" (click)="upvote()"><i class="huge center aligned angle up icon"></i></div>
+        <div class="item"><div class="ui center aligned huge circular label">{{comment.votes}}</div></div>
+        <div class="item"(click)="downvote()"><i class="huge center aligned angle down icon"></i></div>
+        <strong></strong>
+      </div>
+      <div class="ui twelve wide column">
+        <p class="ui medium header">{{comment.body}}</p>
+        <div class="ui row">
+          <p>Author: {{comment.userId}}</p>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+
+</div>

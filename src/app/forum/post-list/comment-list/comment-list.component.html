@@ -1,4 +1,13 @@
- <div class="ui twelve wide column">
-    <p class="ui small" *ngFor="let c of commentList" >{{c.body}} votes:{{c.votes}}</p>
- </div>
-
+<app-comment *ngFor="let c of commentList" [comment]="c"></app-comment>
+<div class="ui segment">
+  <form class="ui form">
+    <div class="ui grid">
+    <div class="ui row fluid input">
+      <textarea class="ui input" placeholder="Write a comment" [(ngModel)]="newComment.body" name="body"></textarea>
+    </div>
+      <div class="ui row">
+      <button class="ui fluid right floated yellow button" (click)="addComment()">Submit</button>
+      </div>
+    </div>
+  </form>
+</div>
