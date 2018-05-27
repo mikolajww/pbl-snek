@@ -7,7 +7,7 @@ export class Post {
   id:string;
   votes:number;
   tags:string[];
-  comments:string[];
+  comments:Comment[];
   userId:string;
   date:Date;
 

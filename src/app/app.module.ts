@@ -20,6 +20,8 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
 import {HttpClientModule} from '@angular/common/http';
 import {FormsModule} from '@angular/forms';
 import {PostHttpService} from './service/post-http-service.service';
+import { CommentListComponent } from './forum/post-list/comment-list/comment-list.component';
+import {CommentService} from "./service/comment.service";
 
 const routes:Routes = [
   {path: '', component:ForumComponent},
@@ -43,7 +45,8 @@ const routes:Routes = [
     NewQuestionComponent,
     ContactComponent,
     LoginComponent,
-    PageNotFoundComponent
+    PageNotFoundComponent,
+    CommentListComponent
   ],
   imports: [
     BrowserModule,
@@ -51,7 +54,7 @@ const routes:Routes = [
     FormsModule,
     RouterModule.forRoot(routes)
   ],
-  providers: [PostHttpService, UserService],
+  providers: [PostHttpService, UserService, CommentService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

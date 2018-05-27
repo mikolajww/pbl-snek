@@ -14,6 +14,7 @@ export class PostComponent implements OnInit {
   constructor(private userService:UserService) { }
 
   ngOnInit() {
+
     //this.author = this.userService.getUser(this.post.userId || 0);
   }
 
