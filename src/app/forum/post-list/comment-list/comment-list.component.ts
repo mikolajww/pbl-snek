@@ -32,7 +32,7 @@ export class CommentListComponent implements OnInit {
     let comment = new NewComment();
     comment.body = this.newComment.body;
     comment.userId = localStorage.getItem("userId");
-    this.commentService.addComment(comment,this.post.id);
+    this.commentService.addComment(comment,this.post.id).subscribe(r => this.commentList.push(r));
     return false;
   }
 }

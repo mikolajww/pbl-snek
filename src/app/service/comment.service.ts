@@ -24,10 +24,7 @@ export class CommentService {
     const trueUrl = `${this.apiUrl}/${id}/comments`;
     const auth = localStorage.getItem("accessKey");
     console.log(newComment);
-    return this.http.post<Comment>(`${trueUrl}?access_token=${auth}`, newComment, {headers: header}).subscribe(
-      r => console.log(r),
-      err => console.log(err)
-    );
+    return this.http.post<Comment>(`${trueUrl}?access_token=${auth}`, newComment, {headers: header});
 
   }
 }
