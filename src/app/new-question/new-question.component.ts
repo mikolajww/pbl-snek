@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {NewPost} from '../model/new-post';
 import {PostService} from '../service/post.service';
 import {PostHttpService} from '../service/post-http-service.service';
+import {Router} from "@angular/router";
 declare var jQuery:any;
 
 @Component({
@@ -11,8 +12,9 @@ declare var jQuery:any;
 })
 export class NewQuestionComponent implements OnInit {
   newPost:NewPost;
-  constructor(private postService:PostHttpService) {
+  constructor(private postService:PostHttpService, private router:Router) {
     this.newPost = new NewPost();
+
   }
 
   ngOnInit() {
@@ -48,7 +50,11 @@ export class NewQuestionComponent implements OnInit {
     post.title = this.newPost.title;
     post.tags = this.newPost.tags;
     post.userId = localStorage.getItem("userId");
-    this.postService.addPost(post);
+    this.postService.addPost(post).subscribe(
+      r => console.log(r),
+      err =>  console.log(err),
+      () => this.router.navigateByUrl('/')
+    );
     return false;
   }
 

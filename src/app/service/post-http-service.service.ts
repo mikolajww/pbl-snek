@@ -22,10 +22,7 @@ export class PostHttpService {
     const header = new HttpHeaders().set('Content-Type','application/json');
     const auth = localStorage.getItem("accessKey");
     console.log(newPost);
-    return this.http.post<Post>(`${this.apiUrl}?access_token=${auth}`,newPost,{headers: header}).subscribe(
-      r => console.log(r),
-      err =>  console.log(err)
-    );
+    return this.http.post<Post>(`${this.apiUrl}?access_token=${auth}`,newPost,{headers: header})
   }
 
 
