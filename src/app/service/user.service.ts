@@ -23,9 +23,14 @@ export class UserService {
       localStorage.setItem("loggedin", "true");
       this.loggedIn = true;
       this.getUser(localStorage.getItem("userId"), localStorage.getItem("accessKey")).subscribe(r =>  {
-        this.user =r;
+        this.user = r;
         console.log(this.user);
+        return true;
       });
+    },
+    err => {
+      console.log('incorrect credentials');
+      return false;
     });
   }
 
@@ -38,6 +43,10 @@ export class UserService {
       console.log("logged out");
       this.loggedIn = false;
     });
+  }
+
+  isLoggedIn():boolean {
+    return localStorage.getItem("accessKey") !== null;
   }
 }
 

@@ -4,7 +4,7 @@ import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './navbar/navbar.component';
-import { SearchboxComponent } from './forum/searchbox/searchbox.component';
+import { SearchboxComponent } from './forum/post-list/searchbox/searchbox.component';
 import { PostListComponent } from './forum/post-list/post-list.component';
 import { PostComponent } from './forum/post-list/post/post.component';
 import { TagSearchComponent } from './forum/tag-search/tag-search.component';
@@ -23,11 +23,16 @@ import {PostHttpService} from './service/post-http-service.service';
 import { CommentListComponent } from './forum/post-list/comment-list/comment-list.component';
 import {CommentService} from "./service/comment.service";
 import { CommentComponent } from './forum/post-list/comment-list/comment/comment.component';
+import {LoggedInGuard} from './service/logged-in.guard';
 
 const routes:Routes = [
   {path: '', component:ForumComponent},
   {path: 'about', component:AboutComponent},
-  {path: 'ask', component:NewQuestionComponent},
+  {
+    path: 'ask',
+    component:NewQuestionComponent,
+    canActivate:[LoggedInGuard]
+  },
   {path: 'contact', component:ContactComponent},
   {path: 'login', component:LoginComponent},
   {path: '**', component:PageNotFoundComponent}
@@ -56,7 +61,7 @@ const routes:Routes = [
     FormsModule,
     RouterModule.forRoot(routes)
   ],
-  providers: [PostHttpService, UserService, CommentService],
+  providers: [PostHttpService, UserService, CommentService, LoggedInGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
