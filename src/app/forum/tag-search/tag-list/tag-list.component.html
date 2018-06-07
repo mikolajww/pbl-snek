@@ -1,0 +1,11 @@
+<div class="ui category search">
+  <div class="ui icon input">
+    <input class="prompt" type="text" placeholder="Search tags...">
+    <i class="search icon"></i>
+  </div>
+</div>
+<br>
+<h3 class="ui horizontal divider header">Top tags</h3>
+<div class="ui tag labels">
+  <app-tag *ngFor="let t of this.tags" [tag]="t"></app-tag>
+</div>
