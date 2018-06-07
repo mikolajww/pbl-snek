@@ -24,6 +24,8 @@ import { CommentListComponent } from './forum/post-list/comment-list/comment-lis
 import {CommentService} from "./service/comment.service";
 import { CommentComponent } from './forum/post-list/comment-list/comment/comment.component';
 import {LoggedInGuard} from './service/logged-in.guard';
+import { TagListComponent } from './forum/tag-search/tag-list/tag-list.component';
+import { TagComponent } from './forum/tag-search/tag-list/tag/tag.component';
 
 const routes:Routes = [
   {path: '', component:ForumComponent},
@@ -53,7 +55,9 @@ const routes:Routes = [
     LoginComponent,
     PageNotFoundComponent,
     CommentListComponent,
-    CommentComponent
+    CommentComponent,
+    TagListComponent,
+    TagComponent
   ],
   imports: [
     BrowserModule,

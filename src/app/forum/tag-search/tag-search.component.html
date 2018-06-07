@@ -1,18 +1,6 @@
 
   <div class="ui segment">
-    <div class="ui category search">
-      <div class="ui icon input">
-        <input class="prompt" type="text" placeholder="Search tags...">
-        <i class="search icon"></i>
-      </div>
-    </div>
-    <br>
-    <h3 class="ui horizontal divider header">Top tags</h3>
-    <div class="ui tag labels">
-      <a class="ui large tag label"><i class="hashtag icon"></i>Math</a><br>
-      <a class="ui large tag label"><i class="hashtag icon"></i>Python</a><br>
-      <a class="ui large tag label"><i class="hashtag icon"></i>Electromagnetism</a><br>
-    </div>
+    <app-tag-list [tags]="['Math','IT', 'Electromagnetism']"></app-tag-list>
     <br>
     <h3 class="ui horizontal divider header">Department tags</h3>
     <div class="ui category search">

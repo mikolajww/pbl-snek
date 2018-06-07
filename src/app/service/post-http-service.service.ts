@@ -17,6 +17,9 @@ export class PostHttpService {
     return this.http.get<Post[]>(this.apiUrl).pipe(tap(r=>console.log(r)));
   }
 
+  getFilteredPosts(query:string) {
+    return this.http.get<Post[]>(`${this.apiUrl}?filter={"where":{"title":{"like":".*${query}.*","options":"i"}}}`).pipe(tap(r=>console.log(r)));
+  }
 
   addPost(newPost:NewPost) {
     const header = new HttpHeaders().set('Content-Type','application/json');
@@ -25,5 +28,8 @@ export class PostHttpService {
     return this.http.post<Post>(`${this.apiUrl}?access_token=${auth}`,newPost,{headers: header})
   }
 
+  getTaggedPosts(tag:string) {
+    return this.http.get<Post[]>(`${this.apiUrl}?filter={"where":{"tags":{"inq":"${tag}"}}}`).pipe(tap(r=>console.log(r)));
+  }
 
 }
