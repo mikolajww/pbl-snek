@@ -5,7 +5,7 @@
         <div class="item" (click)="upvote()"><i class="big center aligned angle up icon"></i></div>
         <div class="item"><div class="ui center aligned circular label">{{post.votes}}</div></div>
         <div class="item"(click)="downvote()"><i class="big center aligned angle down icon"></i></div>
-          <strong>{{post.userId}}</strong>
+
       </div>
     </div>
     <div class="ui fourteen wide column" (click)="showModal()">
@@ -27,6 +27,15 @@
       <div class="ui tag labels">
         <a *ngFor="let t of post.tags" class="ui tag label"><i class="hashtag icon"></i>{{t}}</a>
       </div>
+
+    </div>
+    <div class="ui nine wide column"></div>
+    <div class="ui one wide column">
+      <img class="img-responsive" src="https://api.adorable.io/avatars/64/{{post.userId}}@adorable.io.png">
+    </div>
+    <div class="ui one wide column"></div>
+    <div class="ui two wide column">
+      <strong>{{post.userId}}</strong>
     </div>
   </div>
 </div>
