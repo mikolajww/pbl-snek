@@ -4,6 +4,7 @@ import {tap} from "rxjs/operators";
 import {HttpClient, HttpHeaders} from "@angular/common/http";
 import {Observable} from "rxjs/Observable";
 import {NewComment} from "../model/new-comment";
+import {Vote} from "../model/vote";
 
 @Injectable()
 export class CommentService {
@@ -27,4 +28,5 @@ export class CommentService {
     return this.http.post<Comment>(`${trueUrl}?access_token=${auth}`, newComment, {headers: header});
 
   }
+
 }

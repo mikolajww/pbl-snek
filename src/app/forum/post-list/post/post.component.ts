@@ -2,6 +2,8 @@ import {Component, Input, OnInit} from '@angular/core';
 import {Post} from '../../../model/post';
 import {User} from '../../../model/user';
 import {UserService} from '../../../service/user.service';
+import {NewPost} from "../../../model/new-post";
+import {Vote} from "../../../model/vote";
 declare var jQuery:any;
 @Component({
   selector: 'app-post',
@@ -22,11 +24,35 @@ export class PostComponent implements OnInit {
     jQuery(`.ui.modal.${this.post.id}`).modal('show');
   }
 
-  upvote() {
-    this.post.votes +=1;
+  upvote(): boolean {
+    let vote = new Vote();
+    vote.ownerId = localStorage.getItem("userId");
+    vote.recipientId = this.post.userId;
+    vote.value = 1;
+    this.userService.vote(vote,this.post.id).subscribe(
+      r => console.log(r),
+      err =>  console.log(err)
+    );
+    this.userService.updateVoteCount(this.post.id).subscribe(
+      r => console.log(r),
+      err =>  console.log(err)
+    );
+    return false;
   }
-  downvote() {
-    this.post.votes-=1;
+  downvote(): boolean {
+    let vote = new Vote();
+    vote.ownerId = localStorage.getItem("userId");
+    vote.recipientId = this.post.userId;
+    vote.value = -1;
+    this.userService.vote(vote,this.post.id).subscribe(
+      r => console.log(r),
+      err =>  console.log(err)
+    );
+    this.userService.updateVoteCount(this.post.id).subscribe(
+      r => console.log(r),
+      err =>  console.log(err)
+    );
+    return false;
   }
 
 }

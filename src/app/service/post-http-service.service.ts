@@ -14,7 +14,7 @@ export class PostHttpService {
 
   getAllPosts():Observable<any> {
     console.log('get all posts');
-    return this.http.get<Post[]>(this.apiUrl).pipe(tap(r=>console.log(r)));
+    return this.http.get<any>(this.apiUrl).pipe(tap(r=>console.log(r)));
   }
 
   getFilteredPosts(query:string) {

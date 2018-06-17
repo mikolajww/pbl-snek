@@ -26,6 +26,8 @@ import { CommentComponent } from './forum/post-list/comment-list/comment/comment
 import {LoggedInGuard} from './service/logged-in.guard';
 import { TagListComponent } from './forum/tag-search/tag-list/tag-list.component';
 import { TagComponent } from './forum/tag-search/tag-list/tag/tag.component';
+import { VoteComponent } from './vote/vote.component';
+import {VoteService} from "./service/vote.service";
 
 const routes:Routes = [
   {path: '', component:ForumComponent},
@@ -57,7 +59,8 @@ const routes:Routes = [
     CommentListComponent,
     CommentComponent,
     TagListComponent,
-    TagComponent
+    TagComponent,
+    VoteComponent
   ],
   imports: [
     BrowserModule,
@@ -65,7 +68,7 @@ const routes:Routes = [
     FormsModule,
     RouterModule.forRoot(routes)
   ],
-  providers: [PostHttpService, UserService, CommentService, LoggedInGuard],
+  providers: [PostHttpService, UserService, CommentService,VoteService, LoggedInGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

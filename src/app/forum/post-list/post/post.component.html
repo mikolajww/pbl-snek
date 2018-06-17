@@ -1,12 +1,7 @@
 <div [ngClass]="(post.solved)?'ui green segment':'ui orange segment'">
   <div class="ui grid">
     <div class="ui two wide column">
-      <div class="ui list">
-        <div class="item" (click)="upvote()"><i class="big center aligned angle up icon"></i></div>
-        <div class="item"><div class="ui center aligned circular label">{{post.votes}}</div></div>
-        <div class="item"(click)="downvote()"><i class="big center aligned angle down icon"></i></div>
-          <strong>{{post.userId}}</strong>
-      </div>
+      <app-vote [object]="post"></app-vote>
     </div>
     <div class="ui fourteen wide column" (click)="showModal()">
       <div class="ui grid">
@@ -39,12 +34,7 @@
   </h1>
   <div class="scrolling content">
     <div class="ui grid">
-      <div class="ui list">
-        <div class="item" (click)="upvote()"><i class="huge center aligned angle up icon"></i></div>
-        <div class="item"><div class="ui center aligned huge circular label">{{post.votes}}</div></div>
-        <div class="item"(click)="downvote()"><i class="huge center aligned angle down icon"></i></div>
-        <strong></strong>
-      </div>
+      <app-vote [object]="post"></app-vote>
       <div class="ui twelve wide column">
         <p class="ui huge header">{{post.description}}</p>
       </div>

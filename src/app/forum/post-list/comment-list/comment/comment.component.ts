@@ -19,10 +19,10 @@ export class CommentComponent implements OnInit {
   }
 
   upvote() {
-    this.comment.votes +=1;
+    //this.comment.votes +=1;
   }
   downvote() {
-    this.comment.votes-=1;
+    //this.comment.votes-=1;
   }
 
 }

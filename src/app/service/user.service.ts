@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import {User} from '../model/user';
 import {Post} from '../model/post';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
+import {Vote} from "../model/vote";
 
 @Injectable()
 export class UserService {
@@ -47,6 +48,30 @@ export class UserService {
 
   isLoggedIn():boolean {
     return localStorage.getItem("accessKey") !== null;
+  }
+  vote(newVote: Vote, id: string){
+    const trueUrl = `${this.apiUrl}/posts/${id}/votes`;
+    const auth = localStorage.getItem("accessKey");
+    console.log(newVote);
+    return this.http.post<Vote>(`${trueUrl}?access_token=${auth}`, newVote);
+  }
+  updateVoteCount(id: string){
+    const trueUrl = `${this.apiUrl}/posts/${id}`;
+    const auth = localStorage.getItem("accessKey");
+    let post:Post;
+    this.http.get<Post>(`${trueUrl}`).subscribe(
+      result => {post = result as Post},
+      err => {
+        console.log('cant get post');
+        return false;
+      });
+    if (post.votes.length > 0) {
+      for (let vote of post.votes) {
+        console.log(vote);
+        post.votesObtained += vote.value;
+      }
+    }
+    return this.http.put<Post>(`${trueUrl}?access_token=${auth}`, post);
   }
 }
 
