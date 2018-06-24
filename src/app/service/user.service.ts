@@ -14,7 +14,10 @@ export class UserService {
     const header = new HttpHeaders().set('Authorization',localStorage.getItem("accessKey"));
     return this.http.get(`${this.apiUrl}/Users/${localStorage.getItem("userId")}`,{headers: header});
   }
-
+  getForeignUser(id: string) {
+    const header = new HttpHeaders().set('Authorization',localStorage.getItem("accessKey"));
+    return this.http.get(`${this.apiUrl}/Users/${localStorage.getItem("userId")}`);
+  }
   loginUser(email:string, password:string) {
     this.http.post<any>(`${this.apiUrl}/Users/login`,{"email":email, "password":password}).subscribe(r => {
       console.log(`recieved access key ${r.id}`);

@@ -11,16 +11,18 @@ import {Observable} from 'rxjs/Observable';
   styleUrls: ['./post-list.component.css']
 })
 export class PostListComponent implements OnInit {
-  postList:any[];
+  postList:Post[];
   constructor(private postService:PostHttpService) { }
 
   ngOnInit() {
     this.postService.getAllPosts().subscribe(r=> {
       this.postList = r;
       console.log(r);
+      this.postList[0].solved = true;
       }
     );
     console.log(this.postList);
+
   }
 
   search($event:string) {
